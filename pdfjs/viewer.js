@@ -27,7 +27,7 @@
 
 'use strict';
 
-var DEFAULT_URL =  "compressed.tracemonkey-pldi-09.pdf";
+var DEFAULT_URL =  "";
 var DEFAULT_SCALE_DELTA = 1.1;
 var MIN_SCALE = 0.25;
 var MAX_SCALE = 10.0;
@@ -7572,14 +7572,14 @@ function webViewerInitialized() {
   document.getElementById('presentationMode').addEventListener('click',
       SecondaryToolbar.presentationModeClick.bind(SecondaryToolbar));
 
-  //document.getElementById('openFile').addEventListener('click',
-  //  SecondaryToolbar.openFileClick.bind(SecondaryToolbar));
+  document.getElementById('openFile').addEventListener('click',
+   SecondaryToolbar.openFileClick.bind(SecondaryToolbar));
 
   document.getElementById('print').addEventListener('click',
       SecondaryToolbar.printClick.bind(SecondaryToolbar));
 
-  document.getElementById('download').addEventListener('click',
-      SecondaryToolbar.downloadClick.bind(SecondaryToolbar));
+  // document.getElementById('download').addEventListener('click',
+      // SecondaryToolbar.downloadClick.bind(SecondaryToolbar));
 
 
   if (file && file.lastIndexOf('file:', 0) === 0) {
@@ -7796,8 +7796,11 @@ window.addEventListener('change', function webViewerChange(evt) {
   document.getElementById('viewBookmark').setAttribute('hidden', 'true');
   document.getElementById('secondaryViewBookmark').
       setAttribute('hidden', 'true');
-  document.getElementById('download').setAttribute('hidden', 'true');
-  document.getElementById('secondaryDownload').setAttribute('hidden', 'true');
+  // document.getElementById('download').setAttribute('hidden', 'true');
+  // document.getElementById('secondaryDownload').setAttribute('hidden', 'true');
+  console.log('running')
+  document.getElementById('openFile').setAttribute('hidden', 'true');
+  document.getElementById('secondaryOpenFile').setAttribute('hidden', 'true');
 }, true);
 
 function selectScaleOption(value) {
